@@ -17,7 +17,7 @@ struct MyLogprocs : lcb_logprocs {
 };
 
 extern "C" {
-static void fallback_logger(lcb_logprocs *procs, const char *,
+static void fallback_logger(lcb_logprocs *procs, unsigned int, const char *,
                             int, const char *, int, const char *fmt,
                             va_list ap)
 {

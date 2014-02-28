@@ -337,7 +337,7 @@ lcb_error_t lcb_create(lcb_t *instance,
     settings->grace_next_provider = LCB_DEFAULT_CLCONFIG_GRACE_NEXT;
     settings->bc_http_stream_time = LCB_DEFAULT_BC_HTTP_DISCONNTMO;
     settings->bucket = strdup(bucket);
-    settings->logger = lcb_init_console_logger();
+    lcb_init_console_logger(settings);
 
 
     if (user) {
@@ -485,6 +485,7 @@ void lcb_destroy(lcb_t instance)
     free(settings->password);
     free(settings->bucket);
     free(settings->sasl_mech_force);
+
     if (instance->cmdht) {
         genhash_free(instance->cmdht);
         instance->cmdht = NULL;

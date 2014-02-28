@@ -32,7 +32,7 @@ void lcb_log(const struct lcb_settings_st *settings,
              const char *fmt,
              ...);
 
-lcb_logprocs * lcb_init_console_logger(void);
+void lcb_init_console_logger(struct lcb_settings_st *settings);
 
 #define LCB_LOGS(settings, subsys, severity, msg) \
     lcb_log(settings, subsys, severity, __FILE__, __LINE__, msg)

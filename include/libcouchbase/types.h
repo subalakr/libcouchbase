@@ -549,6 +549,7 @@ extern "C" {
      * @param ap a va_list for vprintf
      */
     typedef void (*lcb_logging_callback)(struct lcb_logprocs_st *procs,
+                                          lcb_uint32_t iid,
                                           const char *subsys,
                                           int severity,
                                           const char *srcfile,
@@ -564,6 +565,7 @@ extern "C" {
      */
     typedef struct lcb_logprocs_st {
         int version;
+        int index;
         union {
             struct {
                 lcb_logging_callback callback;
